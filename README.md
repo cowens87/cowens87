@@ -3,7 +3,7 @@
 ###### Pronouns: She/Her
 
 ### Currently:
-👨🏻‍💻 Studying back-end engineering at [Turing School of Software and Design](https://turing.io/) 🌱
+👨🏻‍💻 Software Engineer looking for new opportunities 🌱
 
 ### Previously:
 💻 Computer System Implementation Specialist\
