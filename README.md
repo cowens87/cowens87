@@ -3,7 +3,7 @@
 ###### Pronouns: She/Her
 
 ### Currently:
-👨🏻‍💻 Software Engineer looking for new opportunities 🌱
+👨🏻‍💻 Software Engineer at Meltwater 🌱
 
 ### Previously:
 💻 Computer System Implementation Specialist\
