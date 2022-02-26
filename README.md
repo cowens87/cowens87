@@ -5,12 +5,6 @@
 ### Currently:
 👨🏻‍💻 Software Engineer at Meltwater 🌱
 
-### Previously:
-💻 Computer System Implementation Specialist\
-🎓 Financial Counselor\
-🤒 Patient Advocate\
-🗣 Medical Interpreter
-
 ![Cydnee's Github Stats](https://github-readme-stats.vercel.app/api?username=cowens87&show_icons=true&theme=buefy&hide=stars&custom_title=Cydnee's%20GitHub%20Stats)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=cowens87&show_icons=true&theme=buefy&layout=compact&langs_count=4)
