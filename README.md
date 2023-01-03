@@ -3,7 +3,7 @@
 ###### Pronouns: She/Her
 
 ### Currently:
-👨🏻‍💻 Software Engineer at Doximity 🌱
+👨🏻‍💻 Software Engineer II at Meltwater 🌱
 
 ![Cydnee's Github Stats](https://github-readme-stats.vercel.app/api?username=cowens87&show_icons=true&theme=buefy&hide=stars&custom_title=Cydnee's%20GitHub%20Stats)
 
