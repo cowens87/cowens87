@@ -7,7 +7,7 @@
 
 ![Cydnee's Github Stats](https://github-readme-stats.vercel.app/api?username=cowens87&theme=cobalt&show_icons=true&hide=stars&custom_title=Cydnee's%20GitHub%20Stats)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=cowens87&theme=cobalt&show_icons=true&layout=compact&langs_count=10&hide=CoffeeScript,SCSS)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=cowens87&theme=cobalt&show_icons=true&layout=compact&langs_count=10&hide=CoffeeScript,Jupyter Notebook,SCSS)
 
 <h3  align="center">📫 Let's get in touch!</h2>
 <p align="center">
