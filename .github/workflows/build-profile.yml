@@ -1,0 +1,66 @@
+name: Build profile
+
+# Redraws the artwork and README from profile.yml, then refreshes the live
+# GitHub activity cards. Runs when profile.yml (or the design code) changes,
+# once a day for fresh stats, and on demand from the Actions tab.
+
+on:
+  push:
+    branches: [main, master]
+    paths: ["profile.yml", ".design/**", ".github/workflows/build-profile.yml"]
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-profile
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Draw artwork and write README from profile.yml
+        run: |
+          pip install --quiet fonttools brotli pyyaml
+          python .design/make.py
+
+      - name: Contribution calendar
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            profile/contribution-grid.svg?color_snake=#C76B4D&color_dots=#EFE3CC,#CFDCC6,#A3B89C,#5E8270,#244A3C
+
+      - name: Repository stats
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&card_width=495&custom_title=Repository%20stats&bg_color=FBF3E6&title_color=172326&text_color=172326&icon_color=C76B4D&ring_color=D5A24C&border_color=172326&border_radius=16
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Language mix
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&card_width=495&bg_color=FBF3E6&title_color=172326&text_color=172326&border_color=172326&border_radius=16
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A README.md assets profile
+          git commit -m "Rebuild profile" || exit 0
+          git push
