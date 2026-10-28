@@ -1,8 +1,8 @@
 name: Build profile
 
-# Redraws the artwork and README from profile.yml, then refreshes the live
-# GitHub activity cards. Runs when profile.yml (or the design code) changes,
-# once a day for fresh stats, and on demand from the Actions tab.
+# Rebuilds the README and its images from profile.yml, and refreshes the
+# activity panel with your real GitHub data. Runs when profile.yml or the
+# design code changes, once a day, and on demand from the Actions tab.
 
 on:
   push:
@@ -29,33 +29,17 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Draw artwork and write README from profile.yml
-        run: |
-          pip install --quiet fonttools brotli pyyaml
-          python .design/make.py
+      - run: pip install --quiet fonttools brotli pyyaml
 
-      - name: Contribution calendar
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            profile/contribution-grid.svg?color_snake=#C76B4D&color_dots=#EFE3CC,#CFDCC6,#A3B89C,#5E8270,#244A3C
+      - name: Fetch activity (contributions + languages)
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USER: ${{ github.repository_owner }}
+        run: python .design/fetch_activity.py
 
-      - name: Repository stats
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: stats
-          options: username=${{ github.repository_owner }}&show_icons=true&card_width=495&custom_title=Repository%20stats&bg_color=FBF3E6&title_color=172326&text_color=172326&icon_color=C76B4D&ring_color=D5A24C&border_color=172326&border_radius=16
-          path: profile/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Language mix
-        uses: stats-organization/github-readme-stats-action@v2
-        with:
-          card: top-langs
-          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&card_width=495&bg_color=FBF3E6&title_color=172326&text_color=172326&border_color=172326&border_radius=16
-          path: profile/top-langs.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build README and images from profile.yml
+        run: python .design/make.py
 
       - name: Commit changes
         run: |
