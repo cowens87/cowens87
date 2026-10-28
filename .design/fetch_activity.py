@@ -16,7 +16,7 @@ if not token:
 QUERY = """query($login: String!) {
   user(login: $login) {
     contributionsCollection { contributionCalendar { totalContributions
-      weeks { contributionDays { contributionCount weekday } } } }
+      weeks { firstDay contributionDays { contributionCount contributionLevel weekday } } } }
     repositories(first: 100, ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC) {
       nodes { languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name } } } } }
   }
@@ -33,12 +33,15 @@ try:
 except Exception as e:  # noqa: BLE001
     sys.exit(f"activity fetch failed, keeping previous data: {e}")
 
-weeks = []
+weeks, levels, starts = [], [], []
 for w in cal["weeks"]:
-    days = [None] * 7
+    days, lv = [None] * 7, [None] * 7
     for d in w["contributionDays"]:
         days[d["weekday"]] = d["contributionCount"]
+        lv[d["weekday"]] = d["contributionLevel"]
     weeks.append(days)
+    levels.append(lv)
+    starts.append(w["firstDay"])
 
 sizes = {}
 for repo in user["repositories"]["nodes"]:
@@ -50,5 +53,5 @@ langs = [(k, round(v / total, 4)) for k, v in top]
 
 out = ROOT / "profile" / "activity.json"
 out.parent.mkdir(exist_ok=True)
-out.write_text(json.dumps({"weeks": weeks, "total": cal["totalContributions"], "languages": langs}))
+out.write_text(json.dumps({"weeks": weeks, "levels": levels, "starts": starts, "total": cal["totalContributions"], "languages": langs}))
 print(f"activity: {cal['totalContributions']} contributions, {len(langs)} languages")

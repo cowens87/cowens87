@@ -5,12 +5,54 @@ from fontTools import subset
 
 FONTS = pathlib.Path(__file__).parent / "fonts"
 
-# palette
-BG, PANEL, LINE, FG, MUTE = "#0F1419", "#151C23", "#26313B", "#E6EDF3", "#8B98A5"
-GRID = "#1B242C"
-CU, TE, LA, GOLD = "#D9824A", "#4FB3A9", "#A99BE0", "#D5A24C"
-INK = "#0B0F13"
-ACCENTS = [CU, TE, LA]
+# ── colour themes ─────────────────────────────────────────────────────
+# Pick one with `theme:` in profile.yml. Roles:
+#   name1/name2  the two lines of the big name     primary  section numbers, labels, tagline
+#   a1/a2/a3     rotating accents (cards, chips)   bg/panel/line/grid/fg/mute  the dark base
+THEMES = {
+    "sakura": dict(bg="#120E16", panel="#1A1520", line="#342A3C", grid="#1E1825", fg="#F7EEF5", mute="#A898AE",
+                   name1="#F9C6DD", name2="#8ED1F7", primary="#F2709C", a1="#8ED1F7", a2="#F2709C", a3="#F7E07A"),
+    "orchid": dict(bg="#0E0B1A", panel="#161226", line="#2E2645", grid="#18142B", fg="#F1EDFF", mute="#9C94B8",
+                   name1="#C9B6FF", name2="#FF6FB5", primary="#FF6FB5", a1="#9F7AEA", a2="#FF6FB5", a3="#5EEAD4"),
+    "aurora": dict(bg="#0A1117", panel="#101A22", line="#22323D", grid="#13202A", fg="#E8F3F1", mute="#8EA3A8",
+                   name1="#A7F3D0", name2="#7DD3FC", primary="#5EEAD4", a1="#5EEAD4", a2="#7DD3FC", a3="#C4B5FD"),
+    "sunset": dict(bg="#140F14", panel="#1D161C", line="#3A2C35", grid="#21191F", fg="#FFF1EA", mute="#B39C9F",
+                   name1="#FFB38A", name2="#FF5E8A", primary="#FF8A65", a1="#FFC857", a2="#FF5E8A", a3="#B8A1FF"),
+    "dusk": dict(bg="#100C1A", panel="#181327", line="#322A47", grid="#19142B", fg="#F6EEFF", mute="#A198BA",
+                 name1="#C9B6FF", name2="#FF7A6B", primary="#FF7A6B", a1="#FFC857", a2="#FF6FB5", a3="#9F7AEA"),
+    "flamingo": dict(bg="#150F17", panel="#1E1621", line="#3B2B3D", grid="#22182A", fg="#FFF0F5", mute="#B49CAA",
+                     name1="#FFB38A", name2="#FF6FB5", primary="#FF6FB5", a1="#FFC857", a2="#FF6FB5", a3="#B8A1FF"),
+    "ember": dict(bg="#0D1117", panel="#161B22", line="#30363D", grid="#161D26", fg="#E6EDF3", mute="#8B949E",
+                  name1="#E6EDF3", name2="#F78166", primary="#F78166", a1="#79C0FF", a2="#F78166", a3="#D2A8FF"),
+    "lilac": dict(bg="#110F17", panel="#19161F", line="#332D3D", grid="#1C1824", fg="#F4F0FA", mute="#A39CB0",
+                  name1="#E9D5FF", name2="#A78BFA", primary="#A78BFA", a1="#A78BFA", a2="#F0ABFC", a3="#93C5FD"),
+}
+T = THEMES["sakura"]
+
+
+def _hex(c):
+    c = c.lstrip("#")
+    return [int(c[i:i + 2], 16) for i in (0, 2, 4)]
+
+
+def shade(c, t=0.62):
+    """Deeper version of colour c, mixed toward the background (for the name's 3D drop)."""
+    a, b = _hex(c), _hex(T["bg"])
+    return "#" + "".join(f"{round(x*(1-t) + y*t):02X}" for x, y in zip(a, b))
+
+
+def use(theme):
+    """Switch palette. Call before importing sections."""
+    global T, BG, PANEL, LINE, GRID, FG, MUTE, NAME1, NAME2, PRIMARY, A1, A2, A3
+    if theme not in THEMES:
+        raise SystemExit(f"profile.yml: theme '{theme}' not found. Choose one of: {', '.join(THEMES)}")
+    T = THEMES[theme]
+    BG, PANEL, LINE, GRID, FG, MUTE = T["bg"], T["panel"], T["line"], T["grid"], T["fg"], T["mute"]
+    NAME1, NAME2, PRIMARY, A1, A2, A3 = T["name1"], T["name2"], T["primary"], T["a1"], T["a2"], T["a3"]
+
+
+use("sakura")
+INK = "#0B0A10"
 
 FONTMAP = {
     "disp":   ("Anton", "anton-latin-400-normal.woff2", 400, "Impact, 'Arial Narrow Bold', sans-serif"),
@@ -63,7 +105,8 @@ def text(x, y, s, cls, size, fill, anchor="start", ls=0, extra=""):
     return f'<text x="{x:.1f}" y="{y:.1f}" class="{cls}" font-size="{size:.1f}" fill="{fill}"{a}{l} {extra}>{esc(s)}</text>'
 
 
-def svg(w, h, title, desc, body, bg=BG, rx=14):
+def svg(w, h, title, desc, body, bg=None, rx=14):
+    bg = bg or BG
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-labelledby="t d">'
             f'<title id="t">{esc(title)}</title><desc id="d">{esc(desc)}</desc><style>/*FONTS*/</style>'
             f'<defs><pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M22,0 H0 V22" fill="none" stroke="{GRID}" stroke-width="1"/></pattern></defs>'
@@ -71,7 +114,7 @@ def svg(w, h, title, desc, body, bg=BG, rx=14):
 
 
 def section_title(y, num, title, note=None, x0=60, x1=940):
-    o = text(x0, y, f"{num} /", "monob", 13, CU, ls=1) + text(x0 + measure(f"{num} /", "monob", 13, 1) + 10, y, title.upper(), "monob", 13, FG, ls=3)
+    o = text(x0, y, f"{num} /", "monob", 13, PRIMARY, ls=1) + text(x0 + measure(f"{num} /", "monob", 13, 1) + 10, y, title.upper(), "monob", 13, FG, ls=3)
     o += f'<path d="M{x0},{y+16} H{x1}" stroke="{LINE}"/>'
     if note:
         o += text(x1, y, note, "mono", 11, MUTE, "end")

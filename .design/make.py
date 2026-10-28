@@ -12,8 +12,8 @@ import yaml
 HERE = pathlib.Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
-from lib import finalize, TE, CU, LA  # noqa: E402
-import sections as s  # noqa: E402
+import lib  # noqa: E402
+from lib import finalize  # noqa: E402
 
 
 def load():
@@ -44,6 +44,14 @@ def build_url(P, b):
 
 def main():
     P = load()
+    lib.use(P.get("theme", "dusk"))
+    # number the sections that are actually shown, so hiding one never leaves a gap
+    shown = ["about"] + (["toolkit"] if P["toolkit"] else []) + ["ai", "builds"] + (["exploring"] if P["exploring"] else []) \
+        + (["activity"] if P.get("show_activity", True) else []) + ["connect"]
+    P["_nums"] = {k: f"{i+1:02d}" for i, k in enumerate(shown)}
+    global s
+    import sections as s  # imported after the theme is set
+    TE, CU, LA = lib.A1, lib.A2, lib.A3
     u = P["github_username"]
     assets = ROOT / "assets"
     assets.mkdir(exist_ok=True)

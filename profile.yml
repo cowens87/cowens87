@@ -11,6 +11,9 @@
 # Must match your GitHub username (and this repo's name).
 github_username: 'cowens87'
 
+# Colour theme: dusk, orchid, sunset, flamingo, sakura, aurora, ember or lilac
+theme: 'dusk'
+
 # ── Header ───────────────────────────────────────────────────────────
 first_name: 'Cydnee'
 last_name: 'Owens'
@@ -29,14 +32,13 @@ tagline:
 
 # ── 01 / About (keep it to two or three sentences) ───────────────────
 about: 'Software Engineer building the infrastructure, pipelines, and observability that keep code moving and systems healthy across AWS and Azure. I gravitate toward DevOps, automation, performance tuning, and untangling complex systems. Lately, I’ve been putting AI to work in CI/CD, telemetry, and engineering workflows because less toil means more time to build things that matter. I like clean code, reliable systems, clever automation, and apparently, 40,000 rows in a spreadsheet is my idea of a good time.'
-
 # ── 02 / Toolkit (up to 8 rows: label, then tools) ───────────────────
 toolkit:
   - ['Cloud', 'AWS · Azure']
   - ['Infra as code', 'Terraform · CloudFormation']
   - ['Containers', 'Kubernetes · Docker · Helm']
-  - ['CI/CD', 'GitHub Actions · Argo CD · Jenkins']
-  - ['Observability', 'OTel · Prometheus · Grafana · Coralogix']
+  - ['CI/CD', 'GitHub Actions · Argo CD']
+  - ['Observability', 'OTel · Coralogix · Prometheus · Grafana']
   - ['Networking', 'VPC · VNet · DNS · private connectivity']
   - ['Languages', 'Python · Ruby · Bash']
   - ['Secrets', 'IAM · Doppler · AWS Secrets Manager']
@@ -85,8 +87,9 @@ exploring:
   - 'Cloud architecture'
 
 # ── 06 / Activity ────────────────────────────────────────────────────
-# Drawn daily from your real GitHub data. Set to false to hide it.
-show_activity: true
+# Off by default: GitHub already shows your real contribution graph right
+# below the README. Set to true to add a styled copy inside the page.
+show_activity: false
 
 # ── 07 / Connect ─────────────────────────────────────────────────────
 # Leave a link empty ("") to hide its button.

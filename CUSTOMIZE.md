@@ -6,6 +6,7 @@ Everything on the page comes from **`profile.yml`**. Edit it, commit, and the **
 
 | To change… | Edit in `profile.yml` |
 | --- | --- |
+| Colour theme | `theme`: `dusk`, `orchid`, `sunset`, `flamingo`, `sakura`, `aurora`, `ember` or `lilac` |
 | Name in the header | `first_name`, `last_name` (long names shrink to fit) |
 | The four lines beside your name | `focus` |
 | "Building systems. / Automating complexity." | `tagline` (two lines) |
@@ -14,7 +15,7 @@ Everything on the page comes from **`profile.yml`**. Edit it, commit, and the **
 | AI engineering columns | `ai_engineering` (3 columns), `ai_tools` (the small line at the right) |
 | Featured builds | `builds` (up to 6). See below. |
 | Currently exploring | `exploring` |
-| Hide the activity panel | `show_activity: false` |
+| Activity panel (off by default; GitHub shows its own graph below the README) | `show_activity: true` to add it |
 | LinkedIn / Portfolio / Email buttons | `links`. Empty `""` hides the button. |
 | "open to:" line | `open_to` |
 | GitHub username | `github_username` (must match the repo name) |
@@ -38,9 +39,9 @@ Each card has a `name`, a one-line `description`, and a `repo`:
 - Apostrophes are fine inside quotes. For a double quote, write `\"`.
 - If a build fails, open the **Actions** tab. The red run's "Build README" step says what's wrong in plain words, e.g. `'builds' needs 1 to 6 entries`.
 
-## Activity panel
+## Activity panel (optional)
 
-The action reads your contribution calendar and language mix from GitHub once a day, and every time you edit `profile.yml`. It shows public activity only. Until the first run, the panel shows an empty grid.
+Off by default, because GitHub already shows your contribution graph under the README. If you set `show_activity: true`, the action reads your contribution calendar and language mix from GitHub once a day, and every time you edit `profile.yml`. It shows public activity only. Until the first run, the panel shows an empty grid.
 
 ## Preview locally (optional)
 
