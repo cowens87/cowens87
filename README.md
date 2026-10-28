@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/about.svg" width="100%" alt="About: I build the paths code takes to production across AWS and Azure, and the signals that tell us it&#x27;s healthy. Lately that means teaching pipelines and telemetry to lean on AI, so engineers spend less time on toil." />
+  <img src="assets/about.svg" width="100%" alt="About: Software Engineer building the infrastructure, pipelines, and observability that keep code moving and systems healthy across AWS and Azure. I gravitate toward DevOps, automation, performance tuning, and untangling complex systems. Lately, I’ve been putting AI to work in CI/CD, telemetry, and engineering workflows because less toil means more time to build things that matter. I like clean code, reliable systems, clever automation, and apparently, 40,000 rows in a spreadsheet is my idea of a good time." />
 </p>
 
 <p align="center">
@@ -42,6 +42,11 @@
 
 <p align="center">
   <img src="assets/connect.svg" width="100%" alt="Connect. Open to: platform, observability &amp; AI-tooling conversations" />
+</p>
+
+<p align="center">
+  <a href="https://www.linkedin.com/in/cydnee-owens-683a3450/"><img src="assets/btn-linkedin.svg" width="87" alt="LinkedIn" /></a>
+  <a href="mailto:cydnee.owens@gmail.com"><img src="assets/btn-email.svg" width="69" alt="Email" /></a>
 </p>
 
 <p align="center">
