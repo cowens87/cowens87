@@ -38,9 +38,23 @@ def about(P):
     lines = wrap(P["about"], "inter", 16, 880)
     H = 90 + len(lines) * 25 + 10
     o = [section_title(40, P.get("_nums", {}).get("about", "01"), "About")]
+    width = 880
     for i, ln in enumerate(lines):
-        o.append(text(60, 90 + i * 25, ln, "inter", 16, FG, extra='opacity=".9"'))
-    return svg(W, H, "01 / About", P["about"], "".join(o))
+        y = 90 + i * 25
+        words = ln.split()
+        last = i == len(lines) - 1
+        if last or len(words) < 2:
+            o.append(text(60, y, ln, "inter", 16, FG, extra='opacity=".9"'))
+            continue
+        # justified: spread the leftover width evenly between the words
+        ws = [measure(w, "inter", 16) for w in words]
+        gap = (width - sum(ws)) / (len(words) - 1)
+        x, spans = 60.0, []
+        for w, wd in zip(words, ws):
+            spans.append(f'<tspan x="{x:.1f}">{esc(w)}</tspan>')
+            x += wd + gap
+        o.append(f'<text y="{y}" class="inter" font-size="16" fill="{FG}" opacity=".9">{"".join(spans)}</text>')
+    return svg(W, H, "About", P["about"], "".join(o))
 
 
 # ------------------------------------------------------------------ 02 toolkit
@@ -56,7 +70,7 @@ def toolkit(P):
         o.append(text(x, y, k.upper(), "monob", fit(k.upper(), "monob", 11.5, 126, 1.4), PRIMARY, ls=1.4))
         o.append(text(x + 136, y, v, "inter", fit(v, "inter", 14, 300), FG))
     desc = "; ".join(f"{k}: {v}" for k, v in rows)
-    return svg(W, H, "02 / Toolkit", desc, "".join(o))
+    return svg(W, H, "Toolkit", desc, "".join(o))
 
 
 # ------------------------------------------------------------------ 03 AI engineering
@@ -70,12 +84,12 @@ def ai(P):
         for j, it in enumerate(col["items"][:3]):
             o.append(text(x + 20, 144 + j * 26, "›", "monob", 14, c) + text(x + 36, 144 + j * 26, it, "inter", fit(it, "inter", 13.5, 224), MUTE))
     desc = (P.get("ai_tools", "") + ". " + "; ".join(f"{c['title']}: {', '.join(c['items'])}" for c in P["ai_engineering"]))
-    return svg(W, H, "03 / AI engineering", desc, "".join(o))
+    return svg(W, H, "AI engineering", desc, "".join(o))
 
 
 # ------------------------------------------------------------------ 04 builds
 def builds_header(P):
-    return svg(1000, 64, "04 / Featured builds", "", section_title(40, P.get("_nums", {}).get("builds", "04"), "Featured builds"))
+    return svg(1000, 64, "Featured builds", "", section_title(40, P.get("_nums", {}).get("builds", "04"), "Featured builds"))
 
 
 def build_card(b, i):
@@ -107,7 +121,7 @@ def exploring(P):
         o.append(f'<rect x="{x}" y="{y}" width="{w:.0f}" height="26" rx="13" fill="none" stroke="{[A1, A2, A3][i % 3]}" stroke-opacity=".6"/>' + text(x + 11, y + 17.5, s, "mono", 12, FG))
         x += w + 8
     H = y + 26 + 24
-    return svg(W, H, "05 / Currently exploring", ", ".join(P["exploring"]), "".join(o))
+    return svg(W, H, "Currently exploring", ", ".join(P["exploring"]), "".join(o))
 
 
 # ------------------------------------------------------------------ 06 activity
@@ -181,7 +195,7 @@ def activity(P, data=None):
     else:
         o.append(text(60, yb, "Live contributions appear here after the first workflow run.", "mono", 11.5, MUTE))
         desc = "Placeholder for the live contribution calendar."
-    return svg(W, H, "06 / Activity", desc, "".join(o))
+    return svg(W, H, "Activity", desc, "".join(o))
 
 
 # ------------------------------------------------------------------ 07 connect
@@ -190,7 +204,7 @@ def connect(P):
     o = [section_title(40, P.get("_nums", {}).get("connect", "07"), "Connect")]
     if P.get("open_to"):
         o.append(text(60, 84, "open to: " + P["open_to"], "mono", 12, MUTE))
-    return svg(W, H, "07 / Connect", "open to: " + P.get("open_to", ""), "".join(o))
+    return svg(W, H, "Connect", "open to: " + P.get("open_to", ""), "".join(o))
 
 
 def button(label, color):
