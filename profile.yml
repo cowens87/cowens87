@@ -10,74 +10,105 @@
 # ─────────────────────────────────────────────────────────────────────
 
 # Your GitHub username. Must match the repo name (github.com/<username>/<username>).
-github_username: "cpanda33"
+github_username: 'cowens87'
 
 # Your name, as it appears in the big header and the terminal panels.
-first_name: "Cydnee"
-last_name: "Owens"
+first_name: 'Cydnee'
+last_name: 'Owens'
 
 # Job title shown in the "whoami" terminal.
-title: "DevOps & Infrastructure Engineer"
+title: 'DevOps Engineer'
 
 # The three headline lines in the header (short, they're set in caps).
 roles:
-  - "Platform Engineering"
-  - "Cloud Infrastructure"
-  - "AI & Automation"
+  - 'Platform Engineering'
+  - 'Cloud Infrastructure'
+  - 'AI & Automation'
 
-tagline: "Building reliable infrastructure and smarter engineering workflows for a more creative, connected future."
+tagline: 'Building reliable infrastructure and smarter engineering workflows for a more creative, connected future.'
 
 # Paragraph beside the whoami terminal.
 intro: "I'm a DevOps & infrastructure engineer who loves the quiet craft of systems that just work. I design cloud platforms, automate the toil out of delivery, and bring AI into everyday engineering workflows so teams can spend more time building what matters."
 
-quote: "Technology works best when it creates more opportunity for people."
+quote: 'Technology works best when it creates more opportunity for people.'
 
 # ── Contact links ────────────────────────────────────────────────────
 # Leave a value empty ("") to hide that button.
 links:
-  linkedin: "https://www.linkedin.com/in/your-handle"   # full URL
-  email: "you@example.com"                              # just the address
-  website: ""                                           # optional, full URL
+  linkedin: 'https://www.linkedin.com/in/cydnee-owens-683a3450/' # full URL
+  email: 'cydnee.owens@gmail.com' # just the address
+  website: '' # optional, full URL
 
 # ── Featured projects (exactly 4) ────────────────────────────────────
 # repo:  the repository name under your account. It links to
 #        github.com/<github_username>/<repo> unless you set url.
 # scene: which illustration to use: construction, rooftop, workshop, library
 projects:
-  - repo: "infra-foundations"
-    description: "Modular infrastructure templates for AWS using Terraform."
-    tags: ["Terraform", "AWS", "IaC"]
-    scene: "construction"
-  - repo: "ai-automation-lab"
-    description: "Experiments with Claude Code, MCP, n8n and intelligent engineering workflows."
-    tags: ["Claude", "MCP", "n8n", "AI Agents"]
-    scene: "rooftop"
-  - repo: "devops-toolkit"
-    description: "Scripts, tools and workflows for productive platform engineering."
-    tags: ["Python", "Bash", "GitHub Actions"]
-    scene: "workshop"
-  - repo: "learning-in-public"
-    description: "Notes, labs and experiments across cloud, AI and automation."
-    tags: ["Documentation", "Labs", "Learning"]
-    scene: "library"
+  - repo: 'infra-foundations'
+    description: 'Modular infrastructure templates for AWS using Terraform.'
+    tags: ['Terraform', 'AWS', 'IaC']
+    scene: 'construction'
+  - repo: 'ai-automation-lab'
+    description: 'Experiments with Claude Code, MCP, n8n and intelligent engineering workflows.'
+    tags: ['Claude', 'MCP', 'n8n', 'AI Agents']
+    scene: 'rooftop'
+  - repo: 'devops-toolkit'
+    description: 'Scripts, tools and workflows for productive platform engineering.'
+    tags: ['Python', 'Bash', 'GitHub Actions']
+    scene: 'workshop'
+  - repo: 'learning-in-public'
+    description: 'Notes, labs and experiments across cloud, AI and automation.'
+    tags: ['Documentation', 'Labs', 'Learning']
+    scene: 'library'
 
 # ── Engineering toolbox (4 columns, up to 8 items each) ──────────────
 toolbox:
-  - title: "Cloud & Infrastructure"
-    items: ["AWS", "Kubernetes", "Terraform", "Docker", "Argo CD", "Helm", "Linux", "Networking"]
-  - title: "Development & Automation"
-    items: ["Ruby", "Python", "Bash", "GitHub Actions", "APIs", "CI/CD", "Scripting"]
-  - title: "AI Engineering & Tools"
-    items: ["Claude Code", "MCP", "n8n", "GitHub Copilot", "LLMs", "Prompt Engineering", "AI Agents", "RAG"]
-  - title: "Observability & Reliability"
-    items: ["Prometheus", "Grafana", "OpenTelemetry", "Logging", "Metrics", "Tracing", "Alerting"]
+  - title: 'Cloud & Infrastructure'
+    items:
+      [
+        'AWS',
+        'Kubernetes',
+        'Terraform',
+        'Docker',
+        'Argo CD',
+        'Helm',
+        'Linux',
+        'Networking',
+      ]
+  - title: 'Development & Automation'
+    items:
+      ['Ruby', 'Python', 'Bash', 'GitHub Actions', 'APIs', 'CI/CD', 'Scripting']
+  - title: 'AI Engineering & Tools'
+    items:
+      [
+        'Claude Code',
+        'MCP',
+        'n8n',
+        'GitHub Copilot',
+        'LLMs',
+        'Prompt Engineering',
+        'AI Agents',
+        'RAG',
+      ]
+  - title: 'Observability & Reliability'
+    items:
+      [
+        'Coralogix',
+        'Prometheus',
+        'Grafana',
+        'OpenTelemetry',
+        'Logging',
+        'Metrics',
+        'Tracing',
+        'Alerting',
+      ]
 
 # ── Currently building & learning (5 stops on the line) ─────────────
 roadmap:
-  - "Advanced AWS Architecture & Kubernetes"
-  - "AI Agents & Tool Integration"
-  - "Intelligent Automation for Infra & DevOps"
-  - "LLM Applications & Practical AI Engineering"
-  - "Open-Source & Community Building"
+  - 'Advanced AWS Architecture & Kubernetes'
+  - 'AI Agents & Tool Integration'
+  - 'Intelligent Automation for Infra & DevOps'
+  - 'LLM Applications & Practical AI Engineering'
+  - 'Open-Source & Community Building'
 
-footer: "CLOUD // AI // AUTOMATION // PEOPLE // A MORE INCLUSIVE TECH FUTURE"
+footer: 'CLOUD // AI // AUTOMATION // PEOPLE // A MORE INCLUSIVE TECH FUTURE'
