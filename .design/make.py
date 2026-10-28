@@ -87,8 +87,12 @@ def main():
     def block(*imgs):
         R.extend(['<p align="center">', *["  " + i for i in imgs], "</p>", ""])
 
+    import hashlib
     def img(src, alt, width="100%", href=None):
-        t = f'<img src="{src}" width="{width}" alt="{a(alt)}" />'
+        # ?v=<content hash> gives each changed image a new address, so GitHub's image cache never shows a stale copy
+        f = ROOT / src
+        v = hashlib.sha1(f.read_bytes()).hexdigest()[:8] if f.exists() else ""
+        t = f'<img src="{src}{"?v=" + v if v else ""}" width="{width}" alt="{a(alt)}" />'
         return f'<a href="{href}">{t}</a>' if href else t
 
     name = f"{P['first_name']} {P['last_name']}"
