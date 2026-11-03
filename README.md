@@ -1,50 +1,50 @@
 <!-- Generated from profile.yml by .design/make.py. Edit profile.yml, not this file. -->
 
 <p align="center">
-  <img src="assets/hero.svg?v=635e1e40" width="100%" alt="Cydnee Owens. Cloud Infrastructure · Platform Engineering · CI/CD · Telemetry · Networking · AI. Building systems. Automating complexity." />
+  <img src="assets/hero.svg?v=a7cae70e" width="100%" alt="Cydnee Owens. Cloud Infrastructure · Platform Engineering · CI/CD · Telemetry · Networking · AI. Building systems. Automating complexity." />
 </p>
 
 <p align="center">
-  <img src="assets/about.svg?v=d491cb0b" width="100%" alt="About: Software Engineer building the infrastructure, pipelines, and observability that keep code moving and systems healthy across AWS and Azure. I gravitate toward DevOps, automation, performance tuning, and untangling complex systems. Lately, I’ve been putting AI to work in CI/CD, telemetry, and engineering workflows because less toil means more time to build things that matter. I like clean code, reliable systems, clever automation, and apparently, 40,000 rows in a spreadsheet is my idea of a good time." />
+  <img src="assets/about.svg?v=12652d27" width="100%" alt="About: Software Engineer building the infrastructure, pipelines, and observability that keep code moving and systems healthy across AWS and Azure. I gravitate toward DevOps, automation, performance tuning, and untangling complex systems. Lately, I’ve been putting AI to work in CI/CD, telemetry, and engineering workflows because less toil means more time to build things that matter. I like clean code, reliable systems, clever automation, and apparently, 40,000 rows in a spreadsheet is my idea of a good time." />
 </p>
 
 <p align="center">
-  <img src="assets/toolkit.svg?v=f7efbabc" width="100%" alt="Toolkit: Cloud: AWS · Azure; Infra as code: Terraform · CloudFormation; Containers: Kubernetes · Docker · Helm; CI/CD: GitHub Actions · Argo CD; Observability: OTel · Coralogix · Prometheus · Grafana; Networking: VPC · VNet · DNS · private connectivity; Languages: Python · Ruby · Bash; Secrets: IAM · Doppler · AWS Secrets Manager" />
+  <img src="assets/toolkit.svg?v=924fd3d1" width="100%" alt="Toolkit: Cloud: AWS · Azure; Infra as code: Terraform · CloudFormation; Containers: Kubernetes · Docker · Helm; CI/CD: GitHub Actions · Argo CD; Observability: OTel · Coralogix · Prometheus · Grafana; Networking: VPC · VNet · DNS · private connectivity; Languages: Python · Ruby · Bash; Secrets: IAM · Doppler · AWS Secrets Manager" />
 </p>
 
 <p align="center">
-  <img src="assets/ai.svg?v=38ac02a8" width="100%" alt="AI engineering: AI-assisted infrastructure: Terraform reviews, Kubernetes debugging, Auto-generated docs; Intelligent automation: Workflow automation, Incident investigation, Engineering reports; Agent development: MCP server integrations, Tool-calling workflows, Human-in-the-loop" />
+  <img src="assets/ai.svg?v=dbcf30ea" width="100%" alt="AI engineering: AI-assisted infrastructure: Terraform reviews, Kubernetes debugging, Auto-generated docs; Intelligent automation: Workflow automation, Incident investigation, Engineering reports; Agent development: MCP server integrations, Tool-calling workflows, Human-in-the-loop" />
 </p>
 
 <p align="center">
-  <img src="assets/builds.svg?v=ac172b4f" width="100%" alt="Featured builds" />
+  <img src="assets/builds.svg?v=5450aa59" width="100%" alt="Featured builds" />
 </p>
 
 <p align="center">
-  <img src="assets/build-1.svg?v=b167cf2c" width="32%" alt="KUBE.LAB: Kubernetes simulations &amp; learning (in progress)" />
-  <img src="assets/build-2.svg?v=c0be943c" width="32%" alt="INFRA MAP: Visualize infrastructure at a glance (in progress)" />
-  <img src="assets/build-3.svg?v=430fe0df" width="32%" alt="AWS LABS: Hands-on cloud architecture (in progress)" />
+  <img src="assets/build-1.svg?v=e836de4b" width="32%" alt="KUBE.LAB: Kubernetes simulations &amp; learning (in progress)" />
+  <img src="assets/build-2.svg?v=30e28978" width="32%" alt="INFRA MAP: Visualize infrastructure at a glance (in progress)" />
+  <img src="assets/build-3.svg?v=4fdc5ee5" width="32%" alt="AWS LABS: Hands-on cloud architecture (in progress)" />
 </p>
 
 <p align="center">
-  <img src="assets/build-4.svg?v=3814473e" width="32%" alt="AI DEVOPS AGENT: AI-assisted infrastructure ops (in progress)" />
-  <img src="assets/build-5.svg?v=401ae155" width="32%" alt="AUTOMATION TOOLKIT: Reusable GitHub workflows (in progress)" />
-  <img src="assets/build-6.svg?v=1fa2e6f1" width="32%" alt="MCP LAB: Connecting agents to real tools (in progress)" />
+  <img src="assets/build-4.svg?v=d0199381" width="32%" alt="AI DEVOPS AGENT: AI-assisted infrastructure ops (in progress)" />
+  <img src="assets/build-5.svg?v=5f7db17f" width="32%" alt="AUTOMATION TOOLKIT: Reusable GitHub workflows (in progress)" />
+  <img src="assets/build-6.svg?v=1887f76f" width="32%" alt="MCP LAB: Connecting agents to real tools (in progress)" />
 </p>
 
 <p align="center">
-  <img src="assets/exploring.svg?v=d915ee48" width="100%" alt="Currently exploring: Advanced Kubernetes, AI agent architecture, MCP integrations, Cloud architecture" />
+  <img src="assets/exploring.svg?v=2c713ca6" width="100%" alt="Currently exploring: Advanced Kubernetes, AI agent architecture, MCP integrations, Cloud architecture" />
 </p>
 
 <p align="center">
-  <img src="assets/connect.svg?v=9337ddc4" width="100%" alt="Connect. Open to: platform, observability &amp; AI-tooling conversations" />
+  <img src="assets/connect.svg?v=aa234d91" width="100%" alt="Connect. Open to: platform, observability &amp; AI-tooling conversations" />
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/cydnee-owens-683a3450/"><img src="assets/btn-linkedin.svg?v=8eb9991b" width="87" alt="LinkedIn" /></a>
-  <a href="mailto:cydnee.owens@gmail.com"><img src="assets/btn-email.svg?v=baba9651" width="69" alt="Email" /></a>
+  <a href="https://www.linkedin.com/in/cydnee-owens-683a3450/"><img src="assets/btn-linkedin.svg?v=7e8700b7" width="87" alt="LinkedIn" /></a>
+  <a href="mailto:cydnee.owens@gmail.com"><img src="assets/btn-email.svg?v=e0bac660" width="69" alt="Email" /></a>
 </p>
 
 <p align="center">
-  <img src="assets/footer.svg?v=6bee518b" width="100%" alt="cowens87@github:~$ keep building" />
+  <img src="assets/footer.svg?v=11c05761" width="100%" alt="cowens87@github:~$ keep building" />
 </p>
